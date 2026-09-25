@@ -1,0 +1,26 @@
+{
+  "dataset_rows": 284807,
+  "fraud_rows": 492,
+  "fraud_rate_percent": 0.1727,
+  "split": {
+    "train": 170884,
+    "validation": 56961,
+    "test": 56962
+  },
+  "threshold": 0.9999888214903072,
+  "precision_fraud": 0.8947368421052632,
+  "recall_fraud": 0.68,
+  "f1_fraud": 0.7727272727272727,
+  "roc_auc": 0.9835506647681661,
+  "pr_auc": 0.7552812306041907,
+  "confusion_matrix": [
+    [
+      56881,
+      6
+    ],
+    [
+      24,
+      51
+    ]
+  ]
+}

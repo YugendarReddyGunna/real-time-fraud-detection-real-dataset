@@ -1,0 +1,7 @@
+Download the public ULB/Kaggle credit-card fraud dataset and place the extracted file here as:
+dataset/creditcard.csv
+
+Expected columns:
+Time, V1...V28, Amount, Class
+
+Do not rename the columns.

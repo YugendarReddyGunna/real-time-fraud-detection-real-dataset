@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FraudGuard | Real-Time Fraud Detection</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><div class="shield">🛡️</div><div><h1>FraudGuard</h1><p>Real-Time Credit Card Fraud Detection</p></div></div>
+  <div class="status"><i id="statusDot"></i><span id="statusText">Checking API...</span></div>
+</header>
+<main class="container">
+<section class="hero"><div><span class="eyebrow">MACHINE LEARNING MONITORING</span><h2>Transaction Risk Center</h2><p>Score transactions and monitor transaction risk in real time.</p></div><button class="ghost" id="clearBtn">Clear History</button></section>
+
+<section class="stats">
+<div class="stat"><span>Total Checks</span><b id="total">0</b></div>
+<div class="stat"><span>Fraud</span><b id="fraud">0</b></div>
+<div class="stat"><span>Suspicious</span><b id="suspicious">0</b></div>
+<div class="stat"><span>Average Risk</span><b id="avgRisk">0%</b></div>
+</section>
+
+<section class="grid2">
+<div class="card">
+<div class="cardhead"><h3>Analyze Transaction</h3><p>Run a transaction through the trained fraud detection model.</p></div>
+<div class="buttons"><button id="normalBtn" class="demo normal">Load Normal Demo</button><button id="riskBtn" class="demo risk">Load High-Risk Demo</button></div>
+<div class="inputs"><label>Transaction Amount<input id="amount" type="number" min="0" step=".01" value="100"></label><label>Transaction Hour (0–23)<input id="hour" type="number" min="0" max="23" value="12"></label></div>
+<details><summary>Advanced model features (V1–V28)</summary><p class="hint">Anonymized PCA features from the public ULB dataset. Demo profiles fill these values automatically.</p><div id="vGrid" class="vgrid"></div></details>
+<button id="predictBtn" class="primary">Analyze Transaction</button><p id="error" class="error"></p>
+</div>
+
+<div class="card resultcard">
+<div class="cardhead"><h3>Risk Assessment</h3><p>Latest model prediction</p></div>
+<div id="empty" class="empty"><div>🛡️</div><b>No transaction analyzed</b><span>Load a demo and analyze it.</span></div>
+<div id="result" class="hidden"><span id="badge" class="badge">LEGITIMATE</span><div id="riskValue" class="riskvalue">0%</div><span class="muted">Fraud probability</span><div class="meter"><i id="meter"></i></div>
+<div class="resultgrid"><div><small>Transaction ID</small><strong id="txnId">-</strong></div><div><small>Threshold</small><strong id="threshold">-</strong></div><div><small>Probability</small><strong id="probability">-</strong></div><div><small>Time</small><strong id="txnTime">-</strong></div></div></div>
+</div>
+</section>
+
+<section class="card"><div class="cardhead"><h3>Recent Predictions</h3><p>Stored by the application backend</p></div>
+<div class="tablewrap"><table><thead><tr><th>Transaction ID</th><th>Amount</th><th>Hour</th><th>Prediction</th><th>Risk</th><th>Time</th></tr></thead><tbody id="history"><tr><td colspan="6" class="emptyrow">No predictions yet.</td></tr></tbody></table></div></section>
+
+<section class="grid2">
+<div class="card"><div class="cardhead"><h3>Risk Distribution</h3><p>All stored predictions</p></div>
+<div class="bars"><div><span>Fraud</span><i><b id="fraudBar"></b></i><em id="fraudPct">0%</em></div><div><span>Suspicious</span><i><b id="suspiciousBar"></b></i><em id="suspiciousPct">0%</em></div><div><span>Legitimate</span><i><b id="legitBar"></b></i><em id="legitPct">0%</em></div></div></div>
+<div class="card"><div class="cardhead"><h3>Model Performance</h3><p>Held-out test-set results</p></div>
+<div class="metrics"><div><span>Precision</span><b>89.47%</b></div><div><span>Recall</span><b>68.00%</b></div><div><span>F1</span><b>77.27%</b></div><div><span>ROC-AUC</span><b>98.36%</b></div><div><span>PR-AUC</span><b>75.53%</b></div></div></div>
+</section>
+
+<section class="card"><div class="cardhead"><h3>Top Model Features</h3><p>Largest absolute coefficients</p></div><div id="features" class="features"><span class="muted">Loading...</span></div></section>
+</main>
+<script src="script.js"></script>
+</body></html>
